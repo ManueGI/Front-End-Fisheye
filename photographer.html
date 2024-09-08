@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -9,19 +9,31 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="logo du site fisheye" />
     </header>
+
     <main id="main">
       <div class="photograph-header">
+        <div class="photograph-info">
+          <h1 id="photograph-name"></h1>
+          <p id="photograph-address"></p>
+          <p id="photograph-tagline"></p>
+        </div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
+      <span>Trier par</span>
+      <section class="photos-section">
+
+      </section>
     </main>
+
+
     <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
+      <div class="modal">
+        <h2>Contactez-moi</h2>
+
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close"/>
+
 				<form>
 					<div>
 						<label>Prénom</label>
@@ -31,6 +43,7 @@
 				</form>
 			</div>
 		</div>
+    <script src="/scripts/utils/utils.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

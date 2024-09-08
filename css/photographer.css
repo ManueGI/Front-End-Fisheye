@@ -3,6 +3,7 @@
 }
 
 .photograph-header {
+    display: flex;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
@@ -73,4 +74,28 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.photographer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.media-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.media-card img {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.media-card video {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
 }
