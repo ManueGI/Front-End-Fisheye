@@ -1,79 +1,99 @@
 #contact_modal {
-    display: none;
+  display: none;
 }
 
 .photograph-header {
-    display: flex;
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #fafafa;
+  height: 300px;
+  margin: 0 100px;
+}
+
+.photograph-header h2 {
+  color: #D3573C;
+  font-size: 64px;
+  font-weight: 400;
+}
+
+.photograph-header .address {
+  color: #901C1C;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.photograph-header .tagline {
+  color: #525252;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+  border-radius: 5px;
+  background-color: #db8876;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
 }
 
 .modal header {
-    justify-content: space-between;
-    width: 100%;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .modal header img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
+  font-size: 64px;
+  font-weight: normal;
+  text-align: center;
 }
 
 form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 form label {
-    color: #312E2E;
-    font-size: 36px;
+  color: #312e2e;
+  font-size: 36px;
 }
 
 form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
 }
 
 form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
 }
 
 .photographer-info {
@@ -81,15 +101,24 @@ form input {
   flex-direction: column;
 }
 
+.photos-section {
+  margin: 0 100px;
+}
+
 .media-section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+}
+
+.media-card {
   width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .media-card img {
-  width: 350px;
+  width: 100%;
   height: 300px;
   object-fit: cover;
 }
@@ -98,4 +127,57 @@ form input {
   width: 350px;
   height: 300px;
   object-fit: cover;
+}
+
+.media-card .photo-title {
+  color: #901C1C;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #901C1C;
+  font-size: 25px;
+  font-weight: 500;
+  width: 50px;
+}
+.counter p{
+  margin: 0;
+}
+
+#filter {
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .media-section {
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .media-section {
+      grid-template-columns: 1fr;
+      gap: 30px;
+  }
+
+  .photograph-header {
+    flex-direction: column;
+    height: 500px;
+  }
+
 }

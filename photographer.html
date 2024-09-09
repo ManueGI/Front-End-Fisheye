@@ -3,27 +3,34 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo du site fisheye" />
+      <a href=".">
+        <img src="assets/images/logo.png" class="logo" alt="Retour à l'accueil - Logo de fisheye"/>
+      </a>
     </header>
 
     <main id="main">
       <div class="photograph-header">
-        <div class="photograph-info">
-          <h1 id="photograph-name"></h1>
-          <p id="photograph-address"></p>
-          <p id="photograph-tagline"></p>
-        </div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
-      <span>Trier par</span>
       <section class="photos-section">
-
+        <div id="filter">
+          <span >Trier par</span>
+        </div>
+        <!-- Le contenu dynamique des médias sera inséré ici -->
       </section>
     </main>
 
@@ -31,7 +38,6 @@
     <div id="contact_modal">
       <div class="modal">
         <h2>Contactez-moi</h2>
-
           <img src="assets/icons/close.svg" onclick="closeModal()" alt="close"/>
 
 				<form>
@@ -44,6 +50,7 @@
 			</div>
 		</div>
     <script src="/scripts/utils/utils.js"></script>
+    <script src="/scripts/templates/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
