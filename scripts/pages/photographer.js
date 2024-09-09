@@ -19,6 +19,9 @@ async function init() {
     }
     const photographer = photographers.find(p => p.id === photographerId);
     const photographerModel = photographerTemplate(photographer);
+
+    document.querySelector('#contact_modal h2').innerHTML = `Contactez-moi <br/> ${photographer.name}`;
+
     if (!photographer) {
       console.error('Photographe non trouvé');
       return;

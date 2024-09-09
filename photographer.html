@@ -35,20 +35,36 @@
     </main>
 
 
-    <div id="contact_modal">
+    <div id="contact_modal" role='dialog'>
       <div class="modal">
-        <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close"/>
+        <div class="modal-header">
+          <h2>Contactez-moi</h2>
+            <img src="assets/icons/close.svg" onclick="closeModal()" alt="close"/>
 
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
+        </div>
+        <form id="contactForm" aria-labelledby="modal-title" role="form" onsubmit="validateForm(event) " method="get" novalidate>
+          <div>
+            <label for="firstName">Prénom</label>
+            <input id="firstName" type="text" aria-label="Entrez votre prénom" aria-required="true" required />
+            <span id="firstNameError" class="error-message"></span>
+
+            <label for="lastName">Nom</label>
+            <input id="lastName" type="text" aria-label="Entrez votre nom" aria-required="true" required />
+            <span id="lastNameError" class="error-message"></span>
+
+            <label for="email">Email</label>
+            <input id="email" type="email" aria-label="Entrez votre adresse email" aria-required="true" required />
+            <span id="emailError" class="error-message"></span>
+
+            <label for="message">Votre message</label>
+            <textarea id="message" rows="4" cols="50" aria-label="Entrez votre message" aria-required="true" required></textarea>
+            <span id="messageError" class="error-message"></span>
+          </div>
+          <button class="contact_button" type="submit" aria-label="Envoyer le formulaire de contact">Envoyer</button>
+        </form>
 			</div>
 		</div>
+
     <script src="/scripts/utils/utils.js"></script>
     <script src="/scripts/templates/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
