@@ -1,71 +1,173 @@
 <!DOCTYPE html>
-<html  lang="fr">
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  >
-    <title>Fisheye - photographe </title>
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
       <a href=".">
-        <img src="assets/images/logo.png" class="logo" alt="Retour à l'accueil - Logo de fisheye"/>
+        <img
+          src="assets/images/logo.png"
+          class="logo"
+          alt="Retour à l'accueil - Logo de fisheye"
+        />
       </a>
     </header>
 
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()">
+          Contactez-moi
+        </button>
       </div>
       <section class="photos-section">
-        <div id="filter">
-          <span >Trier par</span>
+        <div class="sort-container">
+          <span>Trier par</span>
+          <button
+            id="sortButton"
+            class="sort-button"
+            onclick="toggleDropdown()"
+          >
+            <span>Popularité</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div id="dropdownMenu" class="dropdown hidden">
+            <div class="dropdown-item" onclick="selectSortOption('Popularité')">
+              <span>Popularité</span>
+              <i class="fa-solid fa-chevron-up"></i>
+            </div>
+            <div class="dropdown-item" onclick="selectSortOption('Date')">
+              <span>Date</span>
+            </div>
+            <div class="dropdown-item" onclick="selectSortOption('Nom')">
+              <span>Nom</span>
+            </div>
+          </div>
         </div>
+
         <!-- Le contenu dynamique des médias sera inséré ici -->
       </section>
     </main>
 
-
-    <div id="contact_modal" role='dialog'>
+    <div id="contact_modal" aria-hidden="true" role="dialog" class="modal-box">
       <div class="modal">
         <div class="modal-header">
           <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()" alt="close"/>
-
+          <img
+            src="assets/icons/close.svg"
+            onclick="closeModal()"
+            alt="close"
+          />
         </div>
-        <form id="contactForm" aria-labelledby="modal-title" role="form" onsubmit="validateForm(event) " method="get" novalidate>
+        <form
+          id="contactForm"
+          aria-labelledby="modal-title"
+          role="form"
+          onsubmit="validateForm(event) "
+          method="get"
+          novalidate
+        >
           <div>
             <label for="firstName">Prénom</label>
-            <input id="firstName" type="text" aria-label="Entrez votre prénom" aria-required="true" required />
+            <input
+              id="firstName"
+              type="text"
+              aria-label="Entrez votre prénom"
+              aria-required="true"
+              required
+            />
             <span id="firstNameError" class="error-message"></span>
 
             <label for="lastName">Nom</label>
-            <input id="lastName" type="text" aria-label="Entrez votre nom" aria-required="true" required />
+            <input
+              id="lastName"
+              type="text"
+              aria-label="Entrez votre nom"
+              aria-required="true"
+              required
+            />
             <span id="lastNameError" class="error-message"></span>
 
             <label for="email">Email</label>
-            <input id="email" type="email" aria-label="Entrez votre adresse email" aria-required="true" required />
+            <input
+              id="email"
+              type="email"
+              aria-label="Entrez votre adresse email"
+              aria-required="true"
+              required
+            />
             <span id="emailError" class="error-message"></span>
 
             <label for="message">Votre message</label>
-            <textarea id="message" rows="4" cols="50" aria-label="Entrez votre message" aria-required="true" required></textarea>
+            <textarea
+              id="message"
+              rows="4"
+              cols="50"
+              aria-label="Entrez votre message"
+              aria-required="true"
+              required
+            ></textarea>
             <span id="messageError" class="error-message"></span>
           </div>
-          <button class="contact_button" type="submit" aria-label="Envoyer le formulaire de contact">Envoyer</button>
+          <button
+            class="contact_button"
+            type="submit"
+            aria-label="Envoyer le formulaire de contact"
+          >
+            Envoyer
+          </button>
         </form>
-			</div>
-		</div>
+      </div>
+    </div>
+
+    <div id="lightbox_modal" aria-hidden="true" role="dialog" class="modal-box">
+      <div class="lightbox-content">
+        <img
+          src="assets/icons/close_red.svg"
+          onclick="closeLightboxModal()"
+          alt="close"
+          class="control close"
+        />
+
+        <div class="carousel">
+          <div
+            class="control arrow"
+            aria-label="go to precendent photo"
+            onclick="showPrevMedia()"
+          >
+            <img src="assets/icons/precedent.png" alt="precedent photo" />
+          </div>
+          <div class="lightbox-media">
+            <!-- L'image/vidéo active sera injectée ici dynamiquement -->
+          </div>
+          <div
+            class="control arrow"
+            aria-label="go to next photo"
+            onclick="showNextMedia()"
+          >
+            <img src="assets/icons/next.png" alt="next photo" />
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="/scripts/utils/utils.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
     <script src="/scripts/templates/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>

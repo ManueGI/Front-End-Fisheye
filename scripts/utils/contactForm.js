@@ -1,5 +1,6 @@
 function displayModal() {
   const modal = document.getElementById("contact_modal");
+  modal.removeAttribute("aria-hidden")
   const mainContent = document.getElementById("main");
   modal.style.display = "block";
   document.body.classList.add("modal-open");
@@ -9,10 +10,14 @@ function displayModal() {
   // Réinitialiser les messages d'erreur
   const errorMessages = document.querySelectorAll('.error-message');
   errorMessages.forEach(error => error.textContent = '');
+
+    // Ajouter un écouteur pour la touche "Échap"
+    document.addEventListener('keydown', handleEscape);
 }
 
 function closeModal() {
   const modal = document.getElementById("contact_modal");
+  modal.setAttribute("aria-hidden", "true");
   const mainContent = document.getElementById("main");
 
   modal.style.display = "none";
@@ -28,6 +33,18 @@ function closeModal() {
   // Effacer les messages d'erreur
   const errorMessages = document.querySelectorAll('.error-message');
   errorMessages.forEach(error => error.textContent = '');
+
+  // Supprimer l'écouteur pour la touche "Échap"
+  document.removeEventListener('keydown', handleEscape);
+
+}
+
+
+// Fonction pour gérer la fermeture avec la touche "Échap"
+function handleEscape(event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
 }
 
 // Gestion de la soumission du formulaire

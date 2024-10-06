@@ -3,13 +3,17 @@ function photographerTemplate(data) {
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
 
-  function getFirstName(name) {
-    let cleanedName = name.replace(/-/g, " ");
-    let nameParts = cleanedName.split(" ");
-    return nameParts.length > 1
-      ? nameParts.slice(0, -1).join(" ")
-      : cleanedName;
+  function counter(mediaItem, mediaCounter) {
+    if (!mediaItem.isLiked) {
+      mediaItem.isLiked = true;
+      mediaItem.likes += 1;
+    } else {
+      mediaItem.isLiked = false;
+      mediaItem.likes -= 1;
+    }
+    mediaCounter.textContent = mediaItem.likes;
   }
+
 
   function getUserCardDOM() {
     const article = document.createElement("article");
@@ -56,7 +60,9 @@ function photographerTemplate(data) {
     return link;
   }
 
+
   async function displayPhotographerDetails(photographer, media) {
+
     const photographerHeader = document.querySelector(".photograph-header");
 
     const photographerInfo = document.createElement("div");
@@ -93,9 +99,13 @@ function photographerTemplate(data) {
     const mediaSection = document.createElement("div");
     mediaSection.classList.add("media-section");
 
-    media.forEach((item) => {
+    media.forEach((item, index) => {
       const mediaCard = document.createElement("div");
       mediaCard.classList.add("media-card");
+
+      mediaCard.setAttribute("data-likes", item.likes);
+      mediaCard.setAttribute("data-date", item.date);  
+      mediaCard.setAttribute("data-title", item.title);
 
       if (item.image) {
         const mediaImage = document.createElement("img");
@@ -104,6 +114,9 @@ function photographerTemplate(data) {
           `../assets/photographers/${getFirstName(name)}/${item.image}`
         );
         mediaImage.setAttribute("alt", item.title);
+        mediaImage.addEventListener("click", () => {
+          displayLightboxModal(index, media, name);
+        });
         mediaCard.appendChild(mediaImage);
       } else if (item.video) {
         const mediaVideo = document.createElement("video");
@@ -112,6 +125,9 @@ function photographerTemplate(data) {
           `../assets/photographers/${getFirstName(name)}/${item.video}`
         );
         mediaVideo.setAttribute("alt", item.title);
+        mediaVideo.addEventListener("click", () => {
+          displayLightboxModal(index, media, name);
+        });
         mediaCard.appendChild(mediaVideo);
       }
 
@@ -125,14 +141,21 @@ function photographerTemplate(data) {
       likeCounter.classList.add("counter");
 
       const mediaCounter = document.createElement("p");
-      mediaCounter.textContent = "11";
+      mediaCounter.textContent = item.likes;
+
+      const heartContainer = document.createElement("div");
+      heartContainer.classList.add("heart");
+      heartContainer.addEventListener("click", () => {
+        counter(item, mediaCounter);
+      });
 
       const mediaHeart = document.createElement("i");
-      mediaHeart.classList.add("fa-solid");
-      mediaHeart.classList.add("fa-heart");
+      mediaHeart.classList.add("fa-solid", "fa-heart");
+
+      heartContainer.appendChild(mediaHeart);
 
       likeCounter.appendChild(mediaCounter);
-      likeCounter.appendChild(mediaHeart);
+      likeCounter.appendChild(heartContainer);
 
       mediaFooter.appendChild(mediaTitle);
       mediaFooter.appendChild(likeCounter);
