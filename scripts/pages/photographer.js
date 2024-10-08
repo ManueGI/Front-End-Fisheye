@@ -55,7 +55,7 @@ function sortItemsBy(option) {
 
 async function init() {
   try {
-    const response = await fetch('data/photographers.json');
+    const response = await fetch('./data/photographers.json');
     if (!response.ok) {
       throw new Error('Erreur réseau : ' + response.status);
     }
