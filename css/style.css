@@ -78,6 +78,12 @@ a {
   margin: 0;
 }
 
+.no-data {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+
 @media (max-width: 1024px) {
   .photographer_section {
       grid-template-columns: 1fr 1fr;

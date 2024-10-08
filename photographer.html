@@ -38,29 +38,38 @@
       <section class="photos-section">
         <div class="sort-container">
           <span>Trier par</span>
-          <button
-            id="sortButton"
-            class="sort-button"
-            onclick="toggleDropdown()"
-          >
+          <button id="sortButton" class="sort-button" onclick="toggleDropdown()">
             <span>Popularité</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
+
           <div id="dropdownMenu" class="dropdown hidden">
             <div class="dropdown-item" onclick="selectSortOption('Popularité')">
               <span>Popularité</span>
               <i class="fa-solid fa-chevron-up"></i>
             </div>
+            <hr>
             <div class="dropdown-item" onclick="selectSortOption('Date')">
               <span>Date</span>
             </div>
+            <hr>
             <div class="dropdown-item" onclick="selectSortOption('Nom')">
               <span>Nom</span>
             </div>
           </div>
         </div>
 
-        <!-- Le contenu dynamique des médias sera inséré ici -->
+         <div class="tag-infos">
+          <div class="tag-likes">
+            <span id="total-likes"></span>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <div class="tag-price">
+            <span></span>
+            <span>/jour</span>
+          </div>
+
+         </div>
       </section>
     </main>
 

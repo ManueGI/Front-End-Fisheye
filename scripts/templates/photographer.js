@@ -3,7 +3,7 @@ function photographerTemplate(data) {
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
 
-  function counter(mediaItem, mediaCounter) {
+  function counter(mediaItem, mediaCounter, media) {
     if (!mediaItem.isLiked) {
       mediaItem.isLiked = true;
       mediaItem.likes += 1;
@@ -12,8 +12,14 @@ function photographerTemplate(data) {
       mediaItem.likes -= 1;
     }
     mediaCounter.textContent = mediaItem.likes;
+    updateTotalLikes(media);
   }
 
+  function updateTotalLikes(media) {
+    const totalLikes = media.reduce((sum, item) => sum + item.likes, 0);
+    const totalLikesSpan = document.getElementById("total-likes");
+    totalLikesSpan.textContent = totalLikes;
+  }
 
   function getUserCardDOM() {
     const article = document.createElement("article");
@@ -60,9 +66,7 @@ function photographerTemplate(data) {
     return link;
   }
 
-
   async function displayPhotographerDetails(photographer, media) {
-
     const photographerHeader = document.querySelector(".photograph-header");
 
     const photographerInfo = document.createElement("div");
@@ -99,12 +103,23 @@ function photographerTemplate(data) {
     const mediaSection = document.createElement("div");
     mediaSection.classList.add("media-section");
 
+    // Calcul du total des likes
+    const totalLikes = media.reduce((sum, item) => sum + item.likes, 0);
+
+    // Mise à jour du span des likes
+    const totalLikesSpan = document.getElementById("total-likes");
+    totalLikesSpan.textContent = totalLikes;
+
+    // Mise à jour du span du prix
+    const tagPriceSpan = document.querySelector(".tag-price span");
+    tagPriceSpan.textContent = `${photographer.price}€`;
+
     media.forEach((item, index) => {
       const mediaCard = document.createElement("div");
       mediaCard.classList.add("media-card");
 
       mediaCard.setAttribute("data-likes", item.likes);
-      mediaCard.setAttribute("data-date", item.date);  
+      mediaCard.setAttribute("data-date", item.date);
       mediaCard.setAttribute("data-title", item.title);
 
       if (item.image) {
@@ -146,7 +161,7 @@ function photographerTemplate(data) {
       const heartContainer = document.createElement("div");
       heartContainer.classList.add("heart");
       heartContainer.addEventListener("click", () => {
-        counter(item, mediaCounter);
+        counter(item, mediaCounter, media);
       });
 
       const mediaHeart = document.createElement("i");

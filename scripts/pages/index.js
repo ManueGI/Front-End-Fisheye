@@ -11,11 +11,20 @@
     }
 
     async function init() {
-        // Récupère les datas des photographes
-        const data = await getData("http://localhost:5500/data/photographers.json")
-        const  photographers = data.photographers;
-        console.log(photographers)
-        displayData(photographers);
+        try {
+          const response = await fetch('data/photographers.json');
+          if (!response.ok) {
+            throw new Error('Erreur réseau : ' + response.status);
+          }
+          const data = await response.json();
+          console.log(data);
+          const  photographers = data.photographers;
+          console.log(photographers)
+          displayData(photographers);
+        } catch (error) {
+          console.error('Erreur:', error);
+          displayErrorMessage("Impossible d'afficher les informations")
+        }
     }
 
     init();
