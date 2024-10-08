@@ -27,7 +27,7 @@ function photographerTemplate(data) {
     article.setAttribute("aria-label", `Carte du photographe ${name}`);
 
     const link = document.createElement("a");
-    link.setAttribute("href", `photographer.html?id=${id}`);
+    link.setAttribute("href", `./photographer.html?id=${id}`);
     link.setAttribute("aria-label", `Voir la page de ${name}`);
     link.appendChild(article);
 
