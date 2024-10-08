@@ -126,7 +126,7 @@ function photographerTemplate(data) {
         const mediaImage = document.createElement("img");
         mediaImage.setAttribute(
           "src",
-          `../assets/photographers/${getFirstName(name)}/${item.image}`
+          `./assets/photographers/${getFirstName(name)}/${item.image}`
         );
         mediaImage.setAttribute("alt", item.title);
         mediaImage.addEventListener("click", () => {
@@ -137,7 +137,7 @@ function photographerTemplate(data) {
         const mediaVideo = document.createElement("video");
         mediaVideo.setAttribute(
           "src",
-          `../assets/photographers/${getFirstName(name)}/${item.video}`
+          `./assets/photographers/${getFirstName(name)}/${item.video}`
         );
         mediaVideo.setAttribute("alt", item.title);
         mediaVideo.addEventListener("click", () => {
