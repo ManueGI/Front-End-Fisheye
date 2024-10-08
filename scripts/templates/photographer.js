@@ -1,7 +1,7 @@
 function photographerTemplate(data) {
   const { name, id, city, country, tagline, price, portrait } = data;
 
-  const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
+  const picture = `./assets/photographers/Photographers ID Photos/${portrait}`;
 
   function counter(mediaItem, mediaCounter, media) {
     if (!mediaItem.isLiked) {
