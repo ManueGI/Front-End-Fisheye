@@ -187,7 +187,7 @@ function photographerTemplate(data) {
         }
       });
 
-      const mediaHeart = document.createElement("i");
+      const mediaHeart = document.createElement("em");
       mediaHeart.classList.add("fa-solid", "fa-heart");
 
       heartContainer.appendChild(mediaHeart);

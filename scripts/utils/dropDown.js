@@ -8,7 +8,7 @@ function toggleDropdown() {
 // Fonction pour gérer la sélection dans le menu déroulant
 window.selectSortOption = function (option) {
   if (sortButton) {
-    sortButton.innerHTML = `<span>${option}</span> <i class="fa-solid fa-chevron-down"></i>`;
+    sortButton.innerHTML = `<span>${option}</span> <em class="fa-solid fa-chevron-down"></em>`;
   }
   toggleDropdown();
   sortItemsBy(option);
