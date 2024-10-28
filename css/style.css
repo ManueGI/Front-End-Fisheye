@@ -84,6 +84,11 @@ a {
   margin-top: 50px;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+}
+
 @media (max-width: 1024px) {
   .photographer_section {
       grid-template-columns: 1fr 1fr;

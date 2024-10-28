@@ -11,20 +11,9 @@
     }
 
     async function init() {
-        try {
-          const response = await fetch('data/photographers.json');
-          if (!response.ok) {
-            throw new Error('Erreur réseau : ' + response.status);
-          }
-          const data = await response.json();
-          console.log(data);
-          const  photographers = data.photographers;
-          console.log(photographers)
-          displayData(photographers);
-        } catch (error) {
-          console.error('Erreur:', error);
-          displayErrorMessage("Impossible d'afficher les informations")
-        }
+      const data = await getData();
+      const photographers = data.photographers;
+      displayData(photographers);
     }
 
     init();

@@ -1,26 +1,60 @@
+// eslint-disable-next-line no-unused-vars
 function displayModal() {
   const modal = document.getElementById("contact_modal");
-  modal.removeAttribute("aria-hidden")
-  const mainContent = document.getElementById("main");
+  const overlay = document.getElementById("overlay-form");
+  const closeButton = document.getElementById("close-form");
+  modal.removeAttribute("aria-hidden");
+  overlay.style.display = "block";
   modal.style.display = "block";
   document.body.classList.add("modal-open");
 
+  // Masquer le contenu principal
+  const mainContent = document.getElementById("main");
   mainContent.setAttribute("aria-hidden", "true");
 
   // Réinitialiser les messages d'erreur
   const errorMessages = document.querySelectorAll('.error-message');
   errorMessages.forEach(error => error.textContent = '');
 
-    // Ajouter un écouteur pour la touche "Échap"
-    document.addEventListener('keydown', handleEscape);
+  // Ajouter un écouteur pour la touche "Échap"
+  document.addEventListener('keydown', handleEscape);
+  closeButton.focus();
+
+  // Piéger le focus dans la modale
+  function trapFocus(event) {
+   const focusableElements = modal.querySelectorAll('button, input, textarea');
+   const firstFocusableElement = focusableElements[0];
+   const lastFocusableElement = focusableElements[focusableElements.length - 1];
+  if (event.key === "Tab") {
+    if (event.shiftKey) {
+      // Focus précédent (SHIFT + TAB)
+      if (document.activeElement === firstFocusableElement) {
+        lastFocusableElement.focus();
+        event.preventDefault();
+      }
+    } else {
+      // Focus suivant (TAB)
+      if (document.activeElement === lastFocusableElement) {
+        firstFocusableElement.focus();
+        event.preventDefault();
+      }
+    }
+  }
+}
+
+document.addEventListener("keydown", trapFocus);
 }
 
 function closeModal() {
   const modal = document.getElementById("contact_modal");
+  const overlay = document.getElementById("overlay-form");
+
+  // const modal = document.getElementById("contact_modal");
   modal.setAttribute("aria-hidden", "true");
   const mainContent = document.getElementById("main");
 
   modal.style.display = "none";
+  overlay.style.display = "none";
   document.body.classList.remove("modal-open");
 
   // Réactiver le contenu principal pour les lecteurs d'écran
@@ -36,6 +70,8 @@ function closeModal() {
 
   // Supprimer l'écouteur pour la touche "Échap"
   document.removeEventListener('keydown', handleEscape);
+
+  document.querySelector('.contact_button').focus();
 
 }
 

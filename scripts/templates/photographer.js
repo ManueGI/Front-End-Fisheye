@@ -1,25 +1,8 @@
+// eslint-disable-next-line no-unused-vars
 function photographerTemplate(data) {
   const { name, id, city, country, tagline, price, portrait } = data;
 
   const picture = `./assets/photographers/Photographers ID Photos/${portrait}`;
-
-  function counter(mediaItem, mediaCounter, media) {
-    if (!mediaItem.isLiked) {
-      mediaItem.isLiked = true;
-      mediaItem.likes += 1;
-    } else {
-      mediaItem.isLiked = false;
-      mediaItem.likes -= 1;
-    }
-    mediaCounter.textContent = mediaItem.likes;
-    updateTotalLikes(media);
-  }
-
-  function updateTotalLikes(media) {
-    const totalLikes = media.reduce((sum, item) => sum + item.likes, 0);
-    const totalLikesSpan = document.getElementById("total-likes");
-    totalLikesSpan.textContent = totalLikes;
-  }
 
   function getUserCardDOM() {
     const article = document.createElement("article");
@@ -64,6 +47,24 @@ function photographerTemplate(data) {
     article.appendChild(photographerPrice);
 
     return link;
+  }
+
+  function counter(mediaItem, mediaCounter, media) {
+    if (!mediaItem.isLiked) {
+      mediaItem.isLiked = true;
+      mediaItem.likes += 1;
+    } else {
+      mediaItem.isLiked = false;
+      mediaItem.likes -= 1;
+    }
+    mediaCounter.textContent = mediaItem.likes;
+    updateTotalLikes(media);
+  }
+
+  function updateTotalLikes(media) {
+    const totalLikes = media.reduce((sum, item) => sum + item.likes, 0);
+    const totalLikesSpan = document.getElementById("total-likes");
+    totalLikesSpan.textContent = totalLikes;
   }
 
   async function displayPhotographerDetails(photographer, media) {
@@ -129,8 +130,16 @@ function photographerTemplate(data) {
           `./assets/photographers/${getFirstName(name)}/${item.image}`
         );
         mediaImage.setAttribute("alt", item.title);
+        mediaImage.setAttribute("tabindex", "0");
+        mediaImage.setAttribute('aria-haspopup', 'dialog');
+        mediaImage.setAttribute('aria-controls', 'lightbox_modal');
         mediaImage.addEventListener("click", () => {
           displayLightboxModal(index, media, name);
+        });
+        mediaImage.addEventListener("keyup", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            displayLightboxModal(index, media, name);
+          }
         });
         mediaCard.appendChild(mediaImage);
       } else if (item.video) {
@@ -140,8 +149,16 @@ function photographerTemplate(data) {
           `./assets/photographers/${getFirstName(name)}/${item.video}`
         );
         mediaVideo.setAttribute("alt", item.title);
+        mediaVideo.setAttribute("tabindex", "0");
+        mediaVideo.setAttribute('aria-haspopup', 'dialog');
+        mediaVideo.setAttribute('aria-controls', 'dialog');
         mediaVideo.addEventListener("click", () => {
           displayLightboxModal(index, media, name);
+        });
+        mediaVideo.addEventListener("keyup", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            displayLightboxModal(index, media, name);
+          }
         });
         mediaCard.appendChild(mediaVideo);
       }
@@ -160,8 +177,14 @@ function photographerTemplate(data) {
 
       const heartContainer = document.createElement("div");
       heartContainer.classList.add("heart");
+      heartContainer.setAttribute("tabindex", "0");
       heartContainer.addEventListener("click", () => {
         counter(item, mediaCounter, media);
+      });
+      heartContainer.addEventListener("keyup", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          counter(item, mediaCounter, media);
+        }
       });
 
       const mediaHeart = document.createElement("i");

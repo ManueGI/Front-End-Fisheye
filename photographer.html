@@ -31,35 +31,54 @@
 
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">
+        <button class="contact_button" onclick="displayModal()"  aria-haspopup="dialog"
+        aria-controls="contact_modal">
           Contactez-moi
         </button>
       </div>
       <section class="photos-section">
         <div class="sort-container">
           <span>Trier par</span>
-          <button id="sortButton" class="sort-button" onclick="toggleDropdown()">
+          <button
+            id="sortButton"
+            class="sort-button"
+            onclick="toggleDropdown()"
+          >
             <span>Popularité</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
-
-          <div id="dropdownMenu" class="dropdown hidden">
-            <div class="dropdown-item" onclick="selectSortOption('Popularité')">
+          <div id="dropdownMenu" class="dropdown hidden" role="menu">
+            <button
+              class="dropdown-item"
+              role="menuitem"
+              tabindex="0"
+              onclick="selectSortOption('Popularité')"
+            >
               <span>Popularité</span>
               <i class="fa-solid fa-chevron-up"></i>
-            </div>
-            <hr>
-            <div class="dropdown-item" onclick="selectSortOption('Date')">
+            </button>
+            <hr />
+            <button
+              class="dropdown-item"
+              role="menuitem"
+              tabindex="0"
+              onclick="selectSortOption('Date')"
+            >
               <span>Date</span>
-            </div>
-            <hr>
-            <div class="dropdown-item" onclick="selectSortOption('Nom')">
+            </button>
+            <hr />
+            <button
+              class="dropdown-item"
+              role="menuitem"
+              tabindex="0"
+              onclick="selectSortOption('Nom')"
+            >
               <span>Nom</span>
-            </div>
+            </button>
           </div>
         </div>
 
-         <div class="tag-infos">
+        <div class="tag-infos">
           <div class="tag-likes">
             <span id="total-likes"></span>
             <i class="fa-solid fa-heart"></i>
@@ -68,20 +87,29 @@
             <span></span>
             <span>/jour</span>
           </div>
-
-         </div>
+        </div>
       </section>
     </main>
 
-    <div id="contact_modal" aria-hidden="true" role="dialog" class="modal-box">
+    <div id="overlay-form" class="overlay hidden"></div>
+    <div
+      id="contact_modal"
+      aria-hidden="true"
+      role="dialog"
+      class="modal-box"
+      aria-modal="true"
+    >
       <div class="modal">
         <div class="modal-header">
           <h2>Contactez-moi</h2>
-          <img
-            src="./assets/icons/close.svg"
+          <button
+            tabindex="0"
             onclick="closeModal()"
-            alt="close"
-          />
+            aria-label="close modal"
+            id="close-form"
+          >
+            <img src="./assets/icons/close.svg" alt="close" />
+          </button>
         </div>
         <form
           id="contactForm"
@@ -144,41 +172,56 @@
       </div>
     </div>
 
-    <div id="lightbox_modal" aria-hidden="true" role="dialog" class="modal-box">
+    <div id="overlay-lightbox" class="overlay hidden"></div>
+    <div
+      id="lightbox_modal"
+      aria-hidden="true"
+      role="dialog"
+      class="modal-box"
+      aria-describedby="modalLightbox"
+    >
       <div class="lightbox-content">
-        <img
-          src="./assets/icons/close_red.svg"
+        <button
           onclick="closeLightboxModal()"
-          alt="close"
+          aria-label="close lightbox modal"
           class="control close"
-        />
+          id="close-lightbox"
+          tabindex="0"
+        >
+          <img src="./assets/icons/close_red.svg" alt="close" />
+        </button>
 
         <div class="carousel">
-          <div
+          <button
             class="control arrow"
             aria-label="go to precendent photo"
             onclick="showPrevMedia()"
+            tabindex="0"
           >
             <img src="./assets/icons/precedent.png" alt="precedent photo" />
-          </div>
-          <div class="lightbox-media">
+          </button>
+          <div class="lightbox-media" aria-live="polite">
             <!-- L'image/vidéo active sera injectée ici dynamiquement -->
           </div>
-          <div
+          <button
             class="control arrow"
             aria-label="go to next photo"
             onclick="showNextMedia()"
+            tabindex="0"
           >
             <img src="./assets/icons/next.png" alt="next photo" />
-          </div>
+          </button>
         </div>
       </div>
     </div>
 
-    <script src="./scripts/utils/utils.js"></script>
+    <script src="./scripts/utils/dropDown.js"></script>
+    <script src="./scripts/utils/getData.js"></script>
+    <script src="./scripts/utils/getFirstName.js"></script>
+    <script src="./scripts/utils/displayErrorMessage.js"></script>
     <script src="./scripts/utils/lightbox.js"></script>
+    <script src="./scripts/utils/contactForm.js"></script>
     <script src="./scripts/templates/photographer.js"></script>
     <script src="./scripts/pages/photographer.js"></script>
-    <script src="./scripts/utils/contactForm.js"></script>
   </body>
 </html>
