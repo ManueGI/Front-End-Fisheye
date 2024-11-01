@@ -1,3 +1,5 @@
+//Affichage des éléments dynamiques de la page index
+
 // eslint-disable-next-line no-unused-vars
 function photographerTemplate(data) {
   const { name, id, city, country, tagline, price, portrait } = data;
@@ -49,6 +51,7 @@ function photographerTemplate(data) {
     return link;
   }
 
+  //Fonction pour mettre à jour le nombre de like en fonction du fait que le coeur ait été cliqué ou pas
   function counter(mediaItem, mediaCounter, media) {
     if (!mediaItem.isLiked) {
       mediaItem.isLiked = true;
@@ -61,12 +64,14 @@ function photographerTemplate(data) {
     updateTotalLikes(media);
   }
 
+  //Fonction pour afficher le nouveau nombre de likes
   function updateTotalLikes(media) {
     const totalLikes = media.reduce((sum, item) => sum + item.likes, 0);
     const totalLikesSpan = document.getElementById("total-likes");
     totalLikesSpan.textContent = totalLikes;
   }
 
+  //Fonction pour afficher les éléments dynamiques de la page photographer
   async function displayPhotographerDetails(photographer, media) {
     const photographerHeader = document.querySelector(".photograph-header");
 

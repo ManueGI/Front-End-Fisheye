@@ -1,3 +1,4 @@
+//Fonction pour afficher la modale du formulaire
 // eslint-disable-next-line no-unused-vars
 function displayModal() {
   const modal = document.getElementById("contact_modal");
@@ -45,6 +46,7 @@ function displayModal() {
 document.addEventListener("keydown", trapFocus);
 }
 
+//Fonction pour fermer la modale
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   const overlay = document.getElementById("overlay-form");
@@ -83,7 +85,7 @@ function handleEscape(event) {
   }
 }
 
-// Gestion de la soumission du formulaire
+//Fonction pour gérer de la soumission du formulaire
 function validateForm(event) {
   event.preventDefault(); // Empêche l'envoi du formulaire par défaut
 

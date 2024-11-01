@@ -88,7 +88,6 @@ function showNextMedia() {
   currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
   showMedia(currentMediaIndex);
 }
-
 function showPrevMedia() {
   currentMediaIndex = (currentMediaIndex - 1 + mediaItems.length) % mediaItems.length;
   showMedia(currentMediaIndex);
@@ -135,10 +134,4 @@ function trapFocus(modal) {
   const closeButton = document.getElementById("close-lightbox");
   closeButton.focus();
 
-  // Supprime l'écouteur lors de la fermeture de la modale
-  // closeLightboxModal = function() {
-  //   document.removeEventListener("keydown", handleFocusTrap);
-  //   // Appeler l'ancienne fonction de fermeture
-  //   closeLightboxModal();
-  // }
 }

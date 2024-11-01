@@ -1,3 +1,4 @@
+//Fonction qui formate la data
 async function displayData(data) {
   const urlParams = new URLSearchParams(window.location.search);
   const photographerId = parseInt(urlParams.get('id'), 10);
@@ -19,6 +20,7 @@ async function displayData(data) {
   }
 }
 
+//Fonction qui récupère la data et initialise la page
 async function init() {
   const data = await getData();
   displayData(data)

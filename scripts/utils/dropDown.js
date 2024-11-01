@@ -1,6 +1,8 @@
 const sortButton = document.getElementById("sortButton");
 const dropdownMenu = document.getElementById("dropdownMenu");
 
+
+// Fonction pour afficher ou cacher le menu déroulant
 function toggleDropdown() {
   dropdownMenu.classList.toggle("hidden");
 }
@@ -28,6 +30,7 @@ document.addEventListener("click", function (event) {
   }
 });
 
+// Fonction pour trier les éléments selon le critère choisi
 function sortItemsBy(option) {
   const mediaSection = document.querySelector(".media-section");
   const media = [...mediaSection.querySelectorAll(".media-card")];
