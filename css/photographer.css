@@ -52,13 +52,6 @@
   cursor: pointer;
 }
 
-body.modal-open #main {
-  overflow: hidden;
-}
-
-body:not(.modal-open) #main {
-  overflow: auto;
-}
 
 .modal {
   border-radius: 5px;
@@ -281,6 +274,12 @@ form textarea {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.modal-open {
+  overflow: hidden;
 }
 
 .dropdown-item {
