@@ -4,7 +4,9 @@ function displayModal() {
   const modal = document.getElementById("contact_modal");
   const overlay = document.getElementById("overlay-form");
   const closeButton = document.getElementById("close-form");
+
   modal.removeAttribute("aria-hidden");
+  overlay.removeAttribute("aria-hidden");
   overlay.style.display = "block";
   modal.style.display = "block";
   document.body.classList.add("modal-open");
@@ -53,6 +55,7 @@ function closeModal() {
 
   // const modal = document.getElementById("contact_modal");
   modal.setAttribute("aria-hidden", "true");
+  overlay.setAttribute("aria-hidden", "true");
   const mainContent = document.getElementById("main");
 
   modal.style.display = "none";

@@ -15,6 +15,7 @@ function displayLightboxModal(index, media, name) {
 
 
   modal.removeAttribute("aria-hidden");
+  overlay.removeAttribute("aria-hidden");
   overlay.style.display = "block";
   modal.style.display = "block";
   document.body.classList.add("modal-open");
@@ -40,6 +41,7 @@ function closeLightboxModal() {
   const overlay = document.getElementById("overlay-lightbox");
 
   modal.setAttribute("aria-hidden", "true");
+  overlay.setAttribute("aria-hidden", "true");
   modal.style.display = "none";
   overlay.style.display = "none";
   document.body.classList.remove("modal-open");

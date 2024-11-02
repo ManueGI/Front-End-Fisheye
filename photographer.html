@@ -3,7 +3,7 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" >
     <meta charset="utf-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <link rel="icon" type="image/png" href="assets/favicon.png" >
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
@@ -36,7 +36,7 @@
           Contactez-moi
         </button>
       </div>
-      <section class="photos-section">
+      <div class="photos-section">
         <div class="sort-container">
           <span>Trier par</span>
           <button
@@ -57,7 +57,7 @@
               <span>Popularité</span>
               <em class="fa-solid fa-chevron-up"></em>
             </button>
-            <hr />
+            <hr>
             <button
               class="dropdown-item"
               role="menuitem"
@@ -66,7 +66,7 @@
             >
               <span>Date</span>
             </button>
-            <hr />
+            <hr>
             <button
               class="dropdown-item"
               role="menuitem"
@@ -88,10 +88,10 @@
             <span>/jour</span>
           </div>
         </div>
-      </section>
+      </div>
     </main>
 
-    <div id="overlay-form" class="overlay hidden"></div>
+    <div id="overlay-form" class="overlay hidden" aria-hidden="true"></div>
     <div
       id="contact_modal"
       aria-hidden="true"
@@ -101,20 +101,19 @@
     >
       <div class="modal">
         <div class="modal-header">
-          <h2>Contactez-moi</h2>
+          <h2 id="modal-title">Contactez-moi</h2>
           <button
             tabindex="0"
             onclick="closeModal()"
-            aria-label="close modal"
+            aria-label="fermer le formulaire"
             id="close-form"
           >
-            <img src="./assets/icons/close.svg" alt="close" />
+            <img src="./assets/icons/close.svg" alt="close" >
           </button>
         </div>
         <form
           id="contactForm"
           aria-labelledby="modal-title"
-          role="form"
           onsubmit="validateForm(event) "
           method="get"
           novalidate
@@ -127,7 +126,7 @@
               aria-label="Entrez votre prénom"
               aria-required="true"
               required
-            />
+            >
             <span id="firstNameError" class="error-message"></span>
 
             <label for="lastName">Nom</label>
@@ -137,7 +136,7 @@
               aria-label="Entrez votre nom"
               aria-required="true"
               required
-            />
+            >
             <span id="lastNameError" class="error-message"></span>
 
             <label for="email">Email</label>
@@ -147,7 +146,7 @@
               aria-label="Entrez votre adresse email"
               aria-required="true"
               required
-            />
+            >
             <span id="emailError" class="error-message"></span>
 
             <label for="message">Votre message</label>
@@ -172,7 +171,7 @@
       </div>
     </div>
 
-    <div id="overlay-lightbox" class="overlay hidden"></div>
+    <div id="overlay-lightbox" class="overlay hidden" aria-hidden="true"></div>
     <div
       id="lightbox_modal"
       aria-hidden="true"
@@ -180,36 +179,39 @@
       class="modal-box"
       aria-describedby="modalLightbox"
     >
+    <p id="modalLightbox" class="visually-hidden">
+      Ceci est une modale de lightbox qui permet de visualiser les photos en grand format.
+    </p>
       <div class="lightbox-content">
         <button
           onclick="closeLightboxModal()"
-          aria-label="close lightbox modal"
+          aria-label="fermer la lightbox"
           class="control close"
           id="close-lightbox"
           tabindex="0"
         >
-          <img src="./assets/icons/close_red.svg" alt="close" />
+          <img src="./assets/icons/close_red.svg" alt="close" >
         </button>
 
         <div class="carousel">
           <button
             class="control arrow"
-            aria-label="go to precendent photo"
+            aria-label="revenir à la photo précédente"
             onclick="showPrevMedia()"
             tabindex="0"
           >
-            <img src="./assets/icons/precedent.png" alt="precedent photo" />
+            <img src="./assets/icons/precedent.png" alt="photo précédente" >
           </button>
           <div class="lightbox-media" aria-live="polite">
             <!-- L'image/vidéo active sera injectée ici dynamiquement -->
           </div>
           <button
             class="control arrow"
-            aria-label="go to next photo"
+            aria-label="aller à la prochaine photo"
             onclick="showNextMedia()"
             tabindex="0"
           >
-            <img src="./assets/icons/next.png" alt="next photo" />
+            <img src="./assets/icons/next.png" alt="photo suivante" >
           </button>
         </div>
       </div>
