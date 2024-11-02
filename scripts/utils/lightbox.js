@@ -12,7 +12,6 @@ function displayLightboxModal(index, media, name) {
   const modal = document.getElementById("lightbox_modal");
   const overlay = document.getElementById("overlay-lightbox");
 
-
   modal.removeAttribute("aria-hidden");
   overlay.removeAttribute("aria-hidden");
   overlay.style.display = "block";
@@ -62,13 +61,23 @@ function showMedia(index) {
 
   if (mediaItem.image) {
     const img = document.createElement("img");
-    img.setAttribute("src", `./assets/photographers/${getFirstName(photographerName)}/${mediaItem.image}`);
+    img.setAttribute(
+      "src",
+      `./assets/photographers/${getFirstName(photographerName)}/${
+        mediaItem.image
+      }`
+    );
     img.setAttribute("alt", mediaItem.title);
     img.classList.add("carousel-photo");
     photoContainer.appendChild(img);
   } else if (mediaItem.video) {
     const video = document.createElement("video");
-    video.setAttribute("src", `./assets/photographers/${getFirstName(photographerName)}/${mediaItem.video}`);
+    video.setAttribute(
+      "src",
+      `./assets/photographers/${getFirstName(photographerName)}/${
+        mediaItem.video
+      }`
+    );
     video.setAttribute("controls", "controls");
     video.classList.add("carousel-photo");
     photoContainer.appendChild(video);
@@ -89,7 +98,8 @@ function showNextMedia() {
   showMedia(currentMediaIndex);
 }
 function showPrevMedia() {
-  currentMediaIndex = (currentMediaIndex - 1 + mediaItems.length) % mediaItems.length;
+  currentMediaIndex =
+    (currentMediaIndex - 1 + mediaItems.length) % mediaItems.length;
   showMedia(currentMediaIndex);
 }
 
@@ -106,7 +116,9 @@ function handleKeyboardNavigation(event) {
 
 // Fonction pour piéger le focus
 function trapFocus(modal) {
-  const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  const focusableElements = modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
   const firstFocusableElement = focusableElements[0];
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
@@ -133,5 +145,4 @@ function trapFocus(modal) {
 
   const closeButton = document.getElementById("close-lightbox");
   closeButton.focus();
-
 }

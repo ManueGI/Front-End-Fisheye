@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
-    />
+    >
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    />
+    >
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -25,7 +25,7 @@
           src="./assets/images/logo.png"
           class="logo"
           alt="Retour à l'accueil - Logo de fisheye"
-        />
+        >
       </a>
     </header>
 
@@ -41,7 +41,7 @@
         </button>
       </div>
       <div class="photos-section">
-        <div class="sort-container">
+        <nav class="sort-container">
           <span>Trier par</span>
           <button
             id="sortButton"
@@ -60,7 +60,7 @@
               <span>Popularité</span>
               <em class="fa-solid fa-chevron-up"></em>
             </button>
-            <hr />
+            <hr>
             <button
               class="dropdown-item"
               role="menuitem"
@@ -69,7 +69,7 @@
             >
               <span>Date</span>
             </button>
-            <hr />
+            <hr>
             <button
               class="dropdown-item"
               role="menuitem"
@@ -79,7 +79,7 @@
               <span>Nom</span>
             </button>
           </div>
-        </div>
+        </nav>
 
         <div class="tag-infos">
           <div class="tag-likes">
@@ -110,7 +110,7 @@
             aria-label="fermer le formulaire"
             id="close-form"
           >
-            <img src="./assets/icons/close.svg" alt="close" />
+            <img src="./assets/icons/close.svg" alt="close">
           </button>
         </div>
         <form
@@ -128,7 +128,7 @@
               aria-label="Entrez votre prénom"
               aria-required="true"
               required
-            />
+            >
             <span id="firstNameError" class="error-message"></span>
 
             <label for="lastName">Nom</label>
@@ -138,7 +138,7 @@
               aria-label="Entrez votre nom"
               aria-required="true"
               required
-            />
+            >
             <span id="lastNameError" class="error-message"></span>
 
             <label for="email">Email</label>
@@ -148,7 +148,7 @@
               aria-label="Entrez votre adresse email"
               aria-required="true"
               required
-            />
+            >
             <span id="emailError" class="error-message"></span>
 
             <label for="message">Votre message</label>
@@ -179,7 +179,7 @@
       aria-hidden="true"
       role="dialog"
       class="modal-box"
-      aria-label="Modale avec un carousel pour voir les photos en grand format"
+      aria-label="Modale avec un carrousel pour voir les photos en grand format"
     >
       <div class="lightbox-content">
         <button
@@ -189,7 +189,7 @@
           id="close-lightbox"
           tabindex="0"
         >
-          <img src="./assets/icons/close_red.svg" alt="close" />
+          <img src="./assets/icons/close_red.svg" alt="close">
         </button>
 
         <div class="carousel">
@@ -199,9 +199,9 @@
             onclick="showPrevMedia()"
             tabindex="0"
           >
-            <img src="./assets/icons/precedent.png" alt="photo précédente" />
+            <img src="./assets/icons/precedent.png" alt="photo précédente">
           </button>
-          <div class="lightbox-media" aria-live="polite">
+          <div class="lightbox-media">
             <!-- L'image/vidéo active sera injectée ici dynamiquement -->
           </div>
           <button
@@ -210,7 +210,7 @@
             onclick="showNextMedia()"
             tabindex="0"
           >
-            <img src="./assets/icons/next.png" alt="photo suivante" />
+            <img src="./assets/icons/next.png" alt="photo suivante">
           </button>
         </div>
       </div>
