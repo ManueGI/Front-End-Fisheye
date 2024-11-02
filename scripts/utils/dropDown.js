@@ -14,6 +14,7 @@ window.selectSortOption = function (option) {
   }
   toggleDropdown();
   sortItemsBy(option);
+  focus(sortButton);
 };
 
 // Fonction pour fermer le dropdown quand on clique en dehors

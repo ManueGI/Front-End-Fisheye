@@ -52,7 +52,6 @@
   cursor: pointer;
 }
 
-
 .modal {
   border-radius: 5px;
   background-color: #db8876;
@@ -396,18 +395,25 @@ form textarea {
 }
 
 @media (max-width: 768px) {
-    .media-section {
+  .media-section {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
+  .photos-section {
+    margin: 0;
+  }
+
   .photograph-header {
     flex-direction: column;
-    height: 500px;
+    height: 600px;
+    margin: 0;
   }
 
   .modal {
     padding: 15px;
+    width: 100%;
+    margin: 0;
   }
 
   .modal-header h2 {
@@ -417,4 +423,33 @@ form textarea {
   form label {
     font-size: 20px;
   }
+
+
+.lightbox-content {
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.control {
+  width: 10px;
+  margin: 0;
+  position: absolute;
+}
+
+.right-arrow {
+  bottom: 10px;
+  right: 40px;
+}
+
+.left-arrow {
+  bottom: 10px;
+  left: 40px;
+}
+
+.close {
+  right: 50px;
+}
 }

@@ -106,5 +106,7 @@ button {
     justify-content: center;
     margin: 20px;
     text-align: center;
+    flex-direction: column;
+    height: 120px;
 }
 }

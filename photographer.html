@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" >
-    <meta charset="utf-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link rel="icon" type="image/png" href="assets/favicon.png" >
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
-    >
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    >
+    />
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -25,14 +25,18 @@
           src="./assets/images/logo.png"
           class="logo"
           alt="Retour à l'accueil - Logo de fisheye"
-        >
+        />
       </a>
     </header>
 
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()"  aria-haspopup="dialog"
-        aria-controls="contact_modal">
+        <button
+          class="contact_button"
+          onclick="displayModal()"
+          aria-haspopup="dialog"
+          aria-controls="contact_modal"
+        >
           Contactez-moi
         </button>
       </div>
@@ -51,13 +55,12 @@
             <button
               class="dropdown-item"
               role="menuitem"
-              tabindex="0"
               onclick="selectSortOption('Popularité')"
             >
               <span>Popularité</span>
               <em class="fa-solid fa-chevron-up"></em>
             </button>
-            <hr>
+            <hr />
             <button
               class="dropdown-item"
               role="menuitem"
@@ -66,7 +69,7 @@
             >
               <span>Date</span>
             </button>
-            <hr>
+            <hr />
             <button
               class="dropdown-item"
               role="menuitem"
@@ -103,12 +106,11 @@
         <div class="modal-header">
           <h2>Contactez-moi</h2>
           <button
-            tabindex="0"
             onclick="closeModal()"
             aria-label="fermer le formulaire"
             id="close-form"
           >
-            <img src="./assets/icons/close.svg" alt="close" >
+            <img src="./assets/icons/close.svg" alt="close" />
           </button>
         </div>
         <form
@@ -126,7 +128,7 @@
               aria-label="Entrez votre prénom"
               aria-required="true"
               required
-            >
+            />
             <span id="firstNameError" class="error-message"></span>
 
             <label for="lastName">Nom</label>
@@ -136,7 +138,7 @@
               aria-label="Entrez votre nom"
               aria-required="true"
               required
-            >
+            />
             <span id="lastNameError" class="error-message"></span>
 
             <label for="email">Email</label>
@@ -146,7 +148,7 @@
               aria-label="Entrez votre adresse email"
               aria-required="true"
               required
-            >
+            />
             <span id="emailError" class="error-message"></span>
 
             <label for="message">Votre message</label>
@@ -187,35 +189,35 @@
           id="close-lightbox"
           tabindex="0"
         >
-          <img src="./assets/icons/close_red.svg" alt="close" >
+          <img src="./assets/icons/close_red.svg" alt="close" />
         </button>
 
         <div class="carousel">
           <button
-            class="control arrow"
+            class="control arrow left-arrow"
             aria-label="revenir à la photo précédente"
             onclick="showPrevMedia()"
             tabindex="0"
           >
-            <img src="./assets/icons/precedent.png" alt="photo précédente" >
+            <img src="./assets/icons/precedent.png" alt="photo précédente" />
           </button>
           <div class="lightbox-media" aria-live="polite">
             <!-- L'image/vidéo active sera injectée ici dynamiquement -->
           </div>
           <button
-            class="control arrow"
+            class="control arrow right-arrow"
             aria-label="aller à la prochaine photo"
             onclick="showNextMedia()"
             tabindex="0"
           >
-            <img src="./assets/icons/next.png" alt="photo suivante" >
+            <img src="./assets/icons/next.png" alt="photo suivante" />
           </button>
         </div>
       </div>
     </div>
 
-
     <script src="./scripts/utils/displayErrorMessage.js"></script>
+    <script src="./scripts/utils/dropDown.js"></script>
     <script src="./scripts/utils/getData.js"></script>
     <script src="./scripts/utils/getFirstName.js"></script>
     <script src="./scripts/utils/lightbox.js"></script>
