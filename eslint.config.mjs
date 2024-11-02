@@ -10,7 +10,6 @@ export default [
         photographerTemplate: "readonly",
         displayPhotographerDetails: "readonly",
         displayErrorMessage: "readonly",
-        selectSortOption: "readonly",
         getFirstName: "readonly",
         displayLightboxModal: "readonly",
         displayModal: "readonly",

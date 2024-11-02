@@ -4,8 +4,6 @@ async function displayData(photographers) {
 
     photographers.forEach((photographer) => {
         const photographerModel = photographerTemplate(photographer);
-        console.log(photographer)
-        console.log(photographerModel)
         const userCardDOM = photographerModel.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });

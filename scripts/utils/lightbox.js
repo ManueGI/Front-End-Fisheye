@@ -5,7 +5,6 @@ let photographerName = "";
 // Fonction pour afficher la lightbox
 // eslint-disable-next-line no-unused-vars
 function displayLightboxModal(index, media, name) {
-  console.log('open')
   mediaItems = media;
   photographerName = name;
   currentMediaIndex = index;
@@ -36,7 +35,6 @@ function displayLightboxModal(index, media, name) {
 
 // Fonction pour fermer la lightbox
 function closeLightboxModal() {
-  console.log('close')
   const modal = document.getElementById("lightbox_modal");
   const overlay = document.getElementById("overlay-lightbox");
 

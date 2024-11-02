@@ -15,10 +15,4 @@ async function getData() {
   }
 }
 
-//Fonction pour afficher un message d'erreur sur la page si le fetch ne fonctionne pas
-function displayErrorMessage(messageError) {
-  const errorDiv = document.createElement("div");
-  errorDiv.classList.add("no-data");
-  errorDiv.innerHTML = `<p>${messageError}</p>`;
-  document.body.appendChild(errorDiv);
-}
+
