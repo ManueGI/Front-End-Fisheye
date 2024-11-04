@@ -46,6 +46,7 @@
           <button
             id="sortButton"
             class="sort-button"
+            aria-label="trier les photos par popularité"
             onclick="toggleDropdown()"
           >
             <span>Popularité</span>
@@ -55,6 +56,7 @@
             <button
               class="dropdown-item"
               role="menuitem"
+              aria-label="trier les photos par popularité"
               onclick="selectSortOption('Popularité')"
             >
               <span>Popularité</span>
@@ -65,6 +67,7 @@
               class="dropdown-item"
               role="menuitem"
               tabindex="0"
+              aria-label="trier les photos par date"
               onclick="selectSortOption('Date')"
             >
               <span>Date</span>
@@ -74,6 +77,7 @@
               class="dropdown-item"
               role="menuitem"
               tabindex="0"
+              aria-label="trier les photos par nom"
               onclick="selectSortOption('Nom')"
             >
               <span>Nom</span>
@@ -201,7 +205,7 @@
           >
             <img src="./assets/icons/precedent.png" alt="photo précédente">
           </button>
-          <div class="lightbox-media">
+          <div class="lightbox-media" aria-live="polite">
             <!-- L'image/vidéo active sera injectée ici dynamiquement -->
           </div>
           <button

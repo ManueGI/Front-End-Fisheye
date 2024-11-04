@@ -80,14 +80,18 @@ function photographerTemplate(data) {
 
     const photographerName = document.createElement("h1");
     photographerName.textContent = name;
+    photographerName.setAttribute("tabindex", "0");
 
     const photographerAddress = document.createElement("p");
     photographerAddress.textContent = `${city}, ${country}`;
     photographerAddress.classList.add("address");
+    photographerAddress.setAttribute("tabindex", "0");
 
     const photographerTagline = document.createElement("p");
     photographerTagline.textContent = tagline;
     photographerTagline.classList.add("tagline");
+    photographerTagline.setAttribute("tabindex", "0");
+    photographerTagline.setAttribute("aria-label", `Citation de ${name} : ${tagline}`);
 
     // Ajoute les éléments dans l'ordre désiré
     photographerInfo.appendChild(photographerName);
@@ -102,6 +106,7 @@ function photographerTemplate(data) {
     photographerImg.setAttribute("src", picture);
     photographerImg.setAttribute("alt", `portrait photo de ${name}`);
     photographerImg.classList.add("avatar");
+    photographerImg.setAttribute("tabindex", "0");
     photographerHeader.appendChild(photographerImg);
 
     // Affichage dynamique des médias associés
@@ -134,7 +139,7 @@ function photographerTemplate(data) {
           "src",
           `./assets/photographers/${getFirstName(name)}/${item.image}`
         );
-        mediaImage.setAttribute("alt", item.title);
+        mediaImage.setAttribute("alt", `photo : ${item.title}`);
         mediaImage.setAttribute("tabindex", "0");
         mediaImage.setAttribute('aria-haspopup', 'dialog');
         mediaImage.setAttribute('aria-controls', 'lightbox_modal');
@@ -154,6 +159,7 @@ function photographerTemplate(data) {
           `./assets/photographers/${getFirstName(name)}/${item.video}`
         );
         mediaVideo.setAttribute("alt", item.title);
+        mediaVideo.setAttribute("aria-label", `video : ${item.title}`);
         mediaVideo.setAttribute("tabindex", "0");
         mediaVideo.setAttribute('aria-haspopup', 'dialog');
         mediaVideo.setAttribute('aria-controls', 'dialog');
@@ -194,6 +200,7 @@ function photographerTemplate(data) {
 
       const mediaHeart = document.createElement("em");
       mediaHeart.classList.add("fa-solid", "fa-heart");
+      mediaHeart.setAttribute("aria-label", `Ajouter ou supprimer un like sur la photo ${item.title}`);
 
       heartContainer.appendChild(mediaHeart);
 
