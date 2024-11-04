@@ -84,7 +84,7 @@ function showMedia(index) {
   }
 
   const p = document.createElement("p");
-  p.setAttribute("aria-label", `photo title: ${mediaItem.title}`);
+  p.setAttribute("aria-label", `title: ${mediaItem.title}`);
   p.classList.add("photo-title");
   p.textContent = mediaItem.title;
   photoContainer.appendChild(p);

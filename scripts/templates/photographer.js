@@ -189,6 +189,8 @@ function photographerTemplate(data) {
       const heartContainer = document.createElement("div");
       heartContainer.classList.add("heart");
       heartContainer.setAttribute("tabindex", "0");
+      heartContainer.setAttribute("role", "button"); 
+      heartContainer.setAttribute("aria-label", `Ajouter ou supprimer un like sur la photo ${item.title}`);
       heartContainer.addEventListener("click", () => {
         counter(item, mediaCounter, media);
       });
@@ -200,7 +202,6 @@ function photographerTemplate(data) {
 
       const mediaHeart = document.createElement("em");
       mediaHeart.classList.add("fa-solid", "fa-heart");
-      mediaHeart.setAttribute("aria-label", `Ajouter ou supprimer un like sur la photo ${item.title}`);
 
       heartContainer.appendChild(mediaHeart);
 
